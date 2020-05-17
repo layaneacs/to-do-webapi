@@ -11,8 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
+using TodoApi.Interfaces;
 using TodoApi.Models;
+using TodoApi.Repository;
 
 namespace TodoApi
 {
@@ -29,6 +30,7 @@ namespace TodoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("TodoBase"));
+            services.AddScoped<ITodoItem, TodoRepository>();
             services.AddControllers();
         }
 

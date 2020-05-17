@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TodoApi.Interfaces;
+using TodoApi.Models;
 
 namespace TodoApi.Controllers
 {
@@ -9,13 +10,14 @@ namespace TodoApi.Controllers
     public class TodoItemsController : Controller
     {
         public ITodoItem _todoitem { get; set; }
+        
         public TodoItemsController(ITodoItem todoitem)
         {
             _todoitem = todoitem;
         }
 
         [HttpGet]
-        public List<ITodoItem> GetTodoItems()
+        public List<TodoItem> GetTodoItems()
         {
            return _todoitem.GetTodoItems();
         }
