@@ -40,8 +40,21 @@ namespace TodoApi.Controllers
         public ActionResult<TodoItem> CreateTodoItem(TodoItem item)
         {
             var todoitem = _todoitem.CreateTodoItem(item);
-
             return todoitem;
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<TodoItem> DeleteTodoItem(int id)
+        {
+            var todoitem = _todoitem.GetTodoItemId(id);
+
+            if(todoitem == null)
+            {
+                return NotFound();
+            }
+            
+            _todoitem.DeleteTodoItem(todoitem);
+            return NoContent();
         }
 
         

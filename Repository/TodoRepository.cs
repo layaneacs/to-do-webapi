@@ -28,12 +28,27 @@ namespace TodoApi.Repository
             return _context.TodoItems.Where(item => item.Id == id).FirstOrDefault();        
  
         }
-
+        
+        // POST 
         public TodoItem CreateTodoItem(TodoItem item)
         {
-            _context.Set<TodoItem>().Add(item);
+            //_context.Set<TodoItem>().Add(item);
+            _context.TodoItems.Add(item);
             _context.SaveChanges();
             return item;
+        }
+
+        // DELETE
+        public void DeleteTodoItem(TodoItem item)
+        {
+            _context.TodoItems.Remove(item);
+            _context.SaveChanges();
+        }
+
+        // PUT
+        public void UpdateTodoItem(int id, TodoItem item)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -11,5 +11,9 @@ namespace TodoApi.Interfaces
 
         TodoItem CreateTodoItem(TodoItem item);
 
+        void DeleteTodoItem(TodoItem item);
+
+        void UpdateTodoItem(int id , TodoItem item);
+
     }
 }
