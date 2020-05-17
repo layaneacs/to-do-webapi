@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using TodoApi.Interfaces;
 using TodoApi.Models;
 
@@ -17,13 +20,13 @@ namespace TodoApi.Controllers
         }
 
         [HttpGet]
-        public List<TodoItem> GetTodoItems()
+        public ActionResult<List<TodoItem>> GetTodoItems()
         {
            return _todoitem.GetTodoItems();
         }
 
         [HttpGet("{id}")]
-        public TodoItem GetTodoItemId(int id)
+        public ActionResult<TodoItem> GetTodoItemId(int id)
         {
             var item = _todoitem.GetTodoItemId(id);
             if(item == null)
@@ -32,6 +35,16 @@ namespace TodoApi.Controllers
             }
             return item;
         }
+
+        [HttpPost]
+        public ActionResult<TodoItem> CreateTodoItem(TodoItem item)
+        {
+            var todoitem = _todoitem.CreateTodoItem(item);
+
+            return todoitem;
+        }
+
+        
 
 
     }

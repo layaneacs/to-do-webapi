@@ -28,9 +28,12 @@ namespace TodoApi.Repository
             return _context.TodoItems.Where(item => item.Id == id).FirstOrDefault();        
  
         }
-        
 
-
-
+        public TodoItem CreateTodoItem(TodoItem item)
+        {
+            _context.Set<TodoItem>().Add(item);
+            _context.SaveChanges();
+            return item;
+        }
     }
 }

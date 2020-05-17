@@ -9,5 +9,7 @@ namespace TodoApi.Interfaces
 
         TodoItem GetTodoItemId(int id);
 
+        TodoItem CreateTodoItem(TodoItem item);
+
     }
 }
