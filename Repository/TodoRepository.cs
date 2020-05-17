@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 using TodoApi.Interfaces;
@@ -48,7 +48,7 @@ namespace TodoApi.Repository
         // PUT
         public void UpdateTodoItem(TodoItem item)
         {
-            _context.TodoItems.Update(item);
+            _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
         }
     }

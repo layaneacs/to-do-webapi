@@ -57,17 +57,10 @@ namespace TodoApi.Controllers
             return NoContent();
         }
 
-        [HttpPut("{id}")]
-        public ActionResult<TodoItem> UpdateTodoItem(int id)
+        [HttpPut]
+        public ActionResult<TodoItem> UpdateTodoItem(TodoItem item)
         {
-            var todoitem = _todoitem.GetTodoItemId(id);
-
-            if(todoitem == null)
-            {
-                return NotFound();
-            }
-            
-            _todoitem.UpdateTodoItem(todoitem);
+            _todoitem.UpdateTodoItem(item);
             return NoContent();
         }
 
