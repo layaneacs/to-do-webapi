@@ -22,6 +22,16 @@ namespace TodoApi.Controllers
            return _todoitem.GetTodoItems();
         }
 
+        [HttpGet("{id}")]
+        public TodoItem GetTodoItemId(int id)
+        {
+            var item = _todoitem.GetTodoItemId(id);
+            if(item == null)
+            {
+                return NotFound();
+            }
+            return item;
+        }
 
 
     }

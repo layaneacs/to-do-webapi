@@ -6,5 +6,8 @@ namespace TodoApi.Interfaces
     public interface ITodoItem
     {
         List<TodoItem> GetTodoItems();
+
+        TodoItem GetTodoItemId(int id);
+
     }
 }

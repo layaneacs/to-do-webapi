@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 using TodoApi.Interfaces;
@@ -16,9 +16,21 @@ namespace TodoApi.Repository
             _context = context;
         }
 
+        // GET api/todoitems
         public List<TodoItem> GetTodoItems()
         {
             return _context.TodoItems.ToList();
         }
+
+        // GET api/todoitems/id
+        public TodoItem GetTodoItemId(int id)
+        {
+            return _context.TodoItems.Where(item => item.Id == id).FirstOrDefault();        
+ 
+        }
+        
+
+
+
     }
 }
