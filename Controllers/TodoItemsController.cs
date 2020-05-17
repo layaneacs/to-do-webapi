@@ -52,8 +52,22 @@ namespace TodoApi.Controllers
             {
                 return NotFound();
             }
-            
+
             _todoitem.DeleteTodoItem(todoitem);
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<TodoItem> UpdateTodoItem(int id)
+        {
+            var todoitem = _todoitem.GetTodoItemId(id);
+
+            if(todoitem == null)
+            {
+                return NotFound();
+            }
+            
+            _todoitem.UpdateTodoItem(todoitem);
             return NoContent();
         }
 

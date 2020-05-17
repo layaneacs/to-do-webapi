@@ -46,9 +46,10 @@ namespace TodoApi.Repository
         }
 
         // PUT
-        public void UpdateTodoItem(int id, TodoItem item)
+        public void UpdateTodoItem(TodoItem item)
         {
-            throw new System.NotImplementedException();
+            _context.TodoItems.Update(item);
+            _context.SaveChanges();
         }
     }
 }

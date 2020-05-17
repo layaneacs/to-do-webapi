@@ -13,7 +13,7 @@ namespace TodoApi.Interfaces
 
         void DeleteTodoItem(TodoItem item);
 
-        void UpdateTodoItem(int id , TodoItem item);
+        void UpdateTodoItem(TodoItem item);
 
     }
 }
