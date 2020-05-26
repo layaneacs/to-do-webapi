@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/home/carlos/.dotnet/store/|arch|/|tfm|",
-      "/home/carlos/.nuget/packages"
+      "C:\\Users\\Layane\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Layane\\.nuget\\packages"
     ]
   }
 }
