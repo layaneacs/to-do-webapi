@@ -32,7 +32,7 @@ function getTodos(){
 
 function postTodo(){
     axios.post(api ,{
-        name: inputTodo.value,
+        name: inputTodo.value.trim(),
         isComplete: false
     })
         .then(function(response){            
@@ -40,7 +40,9 @@ function postTodo(){
         })
         .catch(function(err) {
             console.log(err)
-        })    
+        })  
+    
+    inputTodo.value = ""
 }
 
 buttonTodo.onclick = postTodo;
