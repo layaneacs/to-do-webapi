@@ -19,17 +19,23 @@ function renderTodos(params) {
 
     var status = document.createElement("td");
     
-    if (params[item].isComplete == false){
+    if (params[item].isComplete === false){
         var statusText = document.createTextNode("pendente");
+        var statusIcon = "fas fa-exclamation-circle icon-pend"
+        
+    } else {
+        var statusText = document.createTextNode("completo")  
+        var statusIcon = "fas fa-check-circle icon-comp"     
     }
-    statusText = document.createTextNode("pendente")
-    
+
     status.setAttribute("class", "status")
 
 
-    var icon = document.createElement("td");
-    var iconText = document.createTextNode("test pro icon");
-    icon.setAttribute("class" , "icon-status")
+    var icon = document.createElement("td");     
+    icon.setAttribute("class" , "icon-status");
+
+    var iconTag = document.createElement("i")
+    iconTag.setAttribute("class" , statusIcon);
 
 
     var edit = document.createElement("td");
@@ -55,7 +61,7 @@ function renderTodos(params) {
     status.appendChild(statusText);
     row.appendChild(status);
 
-    icon.appendChild(iconText);
+    icon.appendChild(iconTag);
     row.appendChild(icon);
 
     edit.appendChild(editText);
@@ -78,10 +84,7 @@ function getTodos() {
     })
     .catch(function (err) {
       console.log(err);
-    })
-    .finally(function (response) {
-      console.log(response);
-    });
+    })    
 }
 
 function postTodo() {
@@ -110,6 +113,9 @@ function removeTodo(idTodo) {
     })
 }
 
+
 buttonTodo.onclick = postTodo;
+
+
 
 getTodos();

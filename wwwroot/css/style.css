@@ -30,7 +30,7 @@ table {
 }
 
 .icon-status {
-    background-color: antiquewhite;
+    
     width: 10vw;
 }
 .edit {
@@ -40,4 +40,21 @@ table {
 .remove {
     background-color: green;
     width: 10vw;
+}
+
+td {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.icon-pend {
+    font-size: 1.5em;
+    color: red;
+    text-align: left;
+}
+
+.icon-comp {
+    font-size: 1.5em;
+    color:green;
+    text-align: left;
 }

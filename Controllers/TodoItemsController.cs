@@ -39,8 +39,15 @@ namespace TodoApi.Controllers
         [HttpPost]
         public ActionResult<TodoItem> CreateTodoItem(TodoItem item)
         {
+            var itemName = item.Name; 
+            if (itemName == "")
+            {
+                return NoContent();
+            }
             var todoitem = _todoitem.CreateTodoItem(item);
             return todoitem;
+
+            
         }
 
         [HttpDelete("{id}")]
