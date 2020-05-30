@@ -6,6 +6,8 @@ var buttonTodo = document.querySelector("button");
 var todos = document.querySelector(".tarefas");
 
 
+
+
 function renderTodos(params) {
   todos.innerHTML = "";  
 
@@ -38,19 +40,28 @@ function renderTodos(params) {
     iconTag.setAttribute("class" , statusIcon);
 
 
+    var id = params[item].id;
+    
+
     var edit = document.createElement("td");
-    var editText = document.createTextNode("Editar");
+    
+    var editLink = document.createElement("a");
+    editLink.setAttribute("href" , "#")
+    editLink.setAttribute("onclick", "editTodoId("+ id +")")
+
+    
+
+    var editText = document.createTextNode("Concluir");
     edit.setAttribute("class", "edit")
 
 
     var excluir = document.createElement("td");
     
-    var excluirLink = document.createElement('a')
-    var id = params[item].id;
+    var excluirLink = document.createElement('a')    
     excluirLink.setAttribute("href", "#")
     excluirLink.setAttribute('onclick' , 'removeTodo('+ id +')')
 
-    var excluirText = document.createTextNode("X");
+    var excluirText = document.createTextNode("x");
     excluir.setAttribute("class" , "remove")
     
     
@@ -64,7 +75,8 @@ function renderTodos(params) {
     icon.appendChild(iconTag);
     row.appendChild(icon);
 
-    edit.appendChild(editText);
+    edit.appendChild(editLink);
+    editLink.appendChild(editText);
     row.appendChild(edit);
 
     excluir.appendChild(excluirLink);
@@ -79,7 +91,7 @@ function renderTodos(params) {
 function getTodos() {
   axios
     .get(api)
-    .then(function (response) {
+    .then(function (response) {      
       renderTodos(response.data);
     })
     .catch(function (err) {
@@ -112,6 +124,35 @@ function removeTodo(idTodo) {
         console.log(err)
     })
 }
+
+function editTodoId(idTodo) {
+  axios
+    .get(api + '/' + idTodo)
+    .then(function (response) {
+      editTodo(response.data.name, idTodo)           
+      
+    })
+    .catch(function (err) {
+      console.log(err);
+    })    
+}
+
+function editTodo(item, id){  
+  axios
+    .put(api, {
+      Id: id,
+      name: item,
+      isComplete: true
+    })
+    .then(function (response) {   
+      console.log(response)    
+      getTodos();  
+    })
+    .catch(function (err) {
+      console.log(err);
+    }) 
+}
+
 
 
 buttonTodo.onclick = postTodo;

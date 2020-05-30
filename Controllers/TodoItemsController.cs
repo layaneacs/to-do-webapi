@@ -69,10 +69,6 @@ namespace TodoApi.Controllers
         {
             _todoitem.UpdateTodoItem(item);
             return NoContent();
-        }
-
-        
-
-
+        }      
     }
 }
