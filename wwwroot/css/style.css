@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: monospace;
+}
+
 header {
   box-shadow: 0px 0px 1px black;
   display: flex;
@@ -17,7 +21,7 @@ header {
 }
 
 table {
-  width: 100vw;
+  width: 100%;
   text-align: center;
 }
 
@@ -33,12 +37,12 @@ table {
     
     width: 10vw;
 }
-.edit {
-    background-color: blueviolet;
+
+.edit {   
     width: 10vw;
 }
-.remove {
-    background-color: green;
+
+.remove {   
     width: 10vw;
 }
 
@@ -57,4 +61,55 @@ td {
     font-size: 1.5em;
     color:green;
     text-align: left;
+}
+
+.box {
+  position:absolute;   
+  min-width: 800px;
+  left: 50%;  
+  transform: translate(-50%);
+}
+
+h2 {
+  padding: 6px;
+}
+
+input {
+  padding: 0.3em;
+  outline: none;
+}
+
+button {
+  padding: 0.3em;
+  background-color: black;
+  color: white;
+  margin-left: 0.8em;
+  outline: none;
+  
+}
+
+.edit a {
+  text-decoration: none;
+  background-color: blue;
+  display: block;
+  border-radius: 10%;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding:6px 4px;
+  color: black;
+}
+
+.remove a {
+  text-decoration: none;
+  background-color:red;
+  display: block;
+  border-radius: 10%;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding: 5px 3px;
+  color: black; 
+}
+
+.tarefas td {   
+  background-color: aqua;
 }

@@ -11,25 +11,31 @@
 </head>
 <body>
     <header>My To-do list</header>
-    <div class="app">
-        <h2>To-do</h2>
-        <input type="text" id="todo">
-        <button type="button" value="Adicionar">New To-do</button>
+
+    <div class="box">
+        
+        <div class="app">
+            <h2>To-do</h2>
+            <input type="text" id="todo">
+            <button type="button" value="Adicionar">New To-do</button>
+        </div>
+        
+        <div id="todos">
+            <table class="titulo">
+                <tr class="row">
+                    <th class="tarefa">Tarefa</th>
+                    <th class="status">Status</th>
+                    <th class="icon-status"></th>
+                    <th class="edit"></th>
+                    <th class="remove"></th>
+                </tr>
+            </table>
+            <table class="tarefas">
+            </table>              
+        </div>
+
     </div>
-    
-    <div id="todos">
-        <table class="titulo">
-            <tr class="row">
-                <th class="tarefa">Tarefa</th>
-                <th class="status">Status</th>
-                <th class="icon-status"></th>
-                <th class="edit"></th>
-                <th class="remove"></th>
-            </tr>
-        </table>
-        <table class="tarefas">
-        </table>              
-    </div>
+   
     
     <script src="js/main.js"></script>
 </body>
